@@ -27,7 +27,7 @@ public class Runner {
     }
 
     private void check_customer_end_time(String redirect){
-        clear_console();
+        Boolean end_time = false;
         for(int i = 0; i < _customer.size(); i++){
             if(format.format(date).equals(_customer.get(i)[2])){
                 System.out.println("Customer " + _customer.get(i)[0] + " has left the room");
@@ -37,33 +37,38 @@ public class Runner {
                         _room.remove(j);
                     }
                 }
+
+                end_time = true;
             }
         }
 
-        switch (redirect) {
-            case "room":
-                System.out.println("\nEnter any key to go back to room list");
-                scanner.nextLine();
-                room();
-                break;
-
-            case "customer":
-                System.out.println("\nEnter any key to go back to customer list");
-                scanner.nextLine();
-                customer();
-                break;
-
-            case "booking":
-                System.out.println("\nEnter any key to go back to booking list");
-                scanner.nextLine();
-                booking();
-                break;
-        
-            default:
-                System.out.println("\nEnter any key to go back to home");
-                scanner.nextLine();
-                home();
-                break;
+        if(end_time){
+            clear_console();
+            switch (redirect) {
+                case "room":
+                    System.out.println("\nEnter any key to go back to room list");
+                    scanner.nextLine();
+                    room();
+                    break;
+    
+                case "customer":
+                    System.out.println("\nEnter any key to go back to customer list");
+                    scanner.nextLine();
+                    customer();
+                    break;
+    
+                case "booking":
+                    System.out.println("\nEnter any key to go back to booking list");
+                    scanner.nextLine();
+                    booking();
+                    break;
+            
+                default:
+                    System.out.println("\nEnter any key to go back to home");
+                    scanner.nextLine();
+                    home();
+                    break;
+            }
         }
     }
 

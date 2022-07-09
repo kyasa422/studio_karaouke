@@ -24,20 +24,14 @@ public class Login {
         char[] passwordArray = console.readPassword();
         password = String.valueOf(passwordArray);
 
-        // if(username == _username && password == _password){
-        //     login = true;
-        //     System.out.println("Berhasil login");
-        // }else if(username != _username && password != _password){
-        //     System.out.println("Username atau Password salah!");
-        //     System.out.println("Enter to continue...");
-        //     input.nextLine();
-        //     run();
-        // }
-
-        if(username.toLowerCase() == "admin"){
-            System.out.println("Berhasil");
+        if(username == _username && password == _password){
+            login = true;
+            System.out.println("Berhasil login");
+        }else if(username != _username && password != _password){
+            System.out.println("Username atau Password salah!");
+            System.out.println("Enter to continue...");
+            input.nextLine();
+            run();
         }
-
-        System.out.println(username);
     }
 }
